@@ -1,8 +1,8 @@
 .todo-card-main{
-    border: blue 2px solid;
+    border: #A02334 2px solid;
     width: fit-content;
     padding: 1rem;
-    background-color: coral;
+    background-color: #96CEB4;
     border-radius: 1rem;
 }
 
