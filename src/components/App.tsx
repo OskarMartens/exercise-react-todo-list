@@ -1,5 +1,6 @@
-import TodoCard from "./components/todo-card/TodoCard";
-import { Todo } from "./interface";
+import CreateTodo from "./create-todo/CreateTodo";
+import TodoCard from "./todo-card/TodoCard";
+import { Todo } from "../interface";
 
 const todos: Todo[] = [
   {
@@ -17,9 +18,10 @@ const todos: Todo[] = [
 export function App() {
   return (
     <>
-      {todos.map((task) => (
+    <CreateTodo />
+      {/* {todos.map((task) => (
         <TodoCard />
-      ))}
+      ))} */}
     </>
   );
 }
