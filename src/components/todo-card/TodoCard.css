@@ -1,0 +1,22 @@
+.todo-card-main{
+    border: blue 2px solid;
+    width: fit-content;
+    padding: 1rem;
+    background-color: coral;
+}
+
+.bottom-section{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    gap: 10rem;
+}
+
+.header{
+    margin: 0;
+}
+
+.buttons{
+    display: flex;
+    gap: 1rem;
+}

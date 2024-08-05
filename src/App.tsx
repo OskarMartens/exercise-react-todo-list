@@ -1,7 +1,9 @@
+import TodoCard from "./components/todo-card/TodoCard";
+
 export function App() {
   return (
     <>
-      <h1>This is the App component</h1>
+      <TodoCard />
     </>
   );
 }
