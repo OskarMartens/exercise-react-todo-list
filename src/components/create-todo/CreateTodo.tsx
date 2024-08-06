@@ -11,9 +11,11 @@ export default function CreateTodo() {
   });
 
   const saveTodo = () => {
-    setTodoData({...todoData, timeStamp: new Date().toLocaleString()})
-    console.log(todoData);
-  }
+    if (todoData.assignedTo.length > 0 && todoData.content.length > 0) {
+      setTodoData({ ...todoData, timeStamp: new Date().toLocaleString() });
+      console.log(todoData);
+    }
+  };
 
   return (
     <div className="create-main">
@@ -23,8 +25,13 @@ export default function CreateTodo() {
         placeholder="What needs to be done?"
         onChange={(e) => setTodoData({ ...todoData, content: e.target.value })}
       />
-      <input type="text" placeholder="Who's doing it?" 
-      onChange={(e) => setTodoData({...todoData, assignedTo: e.target.value})}/>
+      <input
+        type="text"
+        placeholder="Who's doing it?"
+        onChange={(e) =>
+          setTodoData({ ...todoData, assignedTo: e.target.value })
+        }
+      />
       <button onClick={saveTodo}>Save todo</button>
     </div>
   );
