@@ -1,8 +1,8 @@
 import CreateTodo from "./create-todo/CreateTodo";
 import TodoCard from "./todo-card/TodoCard";
-import { Todo } from "../interface";
+import { ITodo } from "../interface";
 
-const todos: Todo[] = [
+const todos: ITodo[] = [
   {
     assignedTo: "Jim",
     content: "Clean the dishes",
