@@ -1,5 +1,5 @@
-export interface Todo{
+export interface ITodo{
     assignedTo : string,
     content: string,
     timeStamp: string
-};
+}
