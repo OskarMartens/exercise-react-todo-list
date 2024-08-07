@@ -1,19 +1,28 @@
 import React, { useState } from "react";
-
 import "./CreateTodo.css";
 import { ITodo } from "../../interface";
 
-export default function CreateTodo() {
-  const [todoData, setTodoData] = useState<ITodo>({
+interface ICreateTodoProps {
+  setFunction: (todo: ITodo) => void;
+}
+
+export default function CreateTodo({ setFunction }: ICreateTodoProps) {
+  const [todoForm, setTodoForm] = useState<ITodo>({
     assignedTo: "",
     content: "",
     timeStamp: new Date().toLocaleString(),
   });
 
   const saveTodo = () => {
-    if (todoData.assignedTo.length > 0 && todoData.content.length > 0) {
-      setTodoData({ ...todoData, timeStamp: new Date().toLocaleString() });
-      console.log(todoData);
+    if (todoForm.assignedTo.length > 0 && todoForm.content.length > 0) {
+      setTodoForm({ ...todoForm, timeStamp: new Date().toLocaleString() });
+      const newTodo: ITodo = {
+        assignedTo: todoForm.assignedTo,
+        content: todoForm.content,
+        timeStamp: todoForm.timeStamp,
+      };
+      setFunction(newTodo);
+      console.log(todoForm);
     }
   };
 
@@ -23,13 +32,13 @@ export default function CreateTodo() {
       <input
         type="text"
         placeholder="What needs to be done?"
-        onChange={(e) => setTodoData({ ...todoData, content: e.target.value })}
+        onChange={(e) => setTodoForm({ ...todoForm, content: e.target.value })}
       />
       <input
         type="text"
         placeholder="Who's doing it?"
         onChange={(e) =>
-          setTodoData({ ...todoData, assignedTo: e.target.value })
+          setTodoForm({ ...todoForm, assignedTo: e.target.value })
         }
       />
       <button onClick={saveTodo}>Save todo</button>

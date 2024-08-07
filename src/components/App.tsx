@@ -7,6 +7,11 @@ import data from "../data/todos.json";
 export function App() {
   const [todos, setTodos] = useState<ITodo[]>(data as ITodo[]);
 
+  const addTodo = (newTodo: ITodo) => {
+    console.log(newTodo);
+    setTodos([...todos, newTodo]);
+  };
+
   const removeTodo = (todo: ITodo): void  => {
     setTodos(todos.filter((t) => t !== todo))
   };
@@ -14,7 +19,7 @@ export function App() {
   return (
     <>
       <main className="app-main">
-        <CreateTodo />
+        <CreateTodo setFunction={addTodo}/>
         {todos?.map((todo) => (
           <TodoCard key={todo.content} todo={todo} onClick={removeTodo} />
         ))}
