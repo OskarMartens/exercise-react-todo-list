@@ -8,7 +8,6 @@
   background-color: #96ceb4;
   width: fit-content;
   padding-right: 2rem;
-  margin-left: 2rem;
 
   h2 {
     border: #a02334 4px solid;
@@ -28,5 +27,6 @@
   }
   button {
     margin-left: 2rem;
+    align-self: center;
   }
 }
