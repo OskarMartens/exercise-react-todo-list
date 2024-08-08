@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import "./TodoCard.css";
 import { ITodo } from "../../interface";
 
