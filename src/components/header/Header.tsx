@@ -4,11 +4,11 @@ import './Header.css';
 
 export default function Header() {
   return (
-    <header>Header
-        <Link to="/">
+    <header className='header'>
+        <Link to="/" className='header-link'>
             Create Todo
         </Link>
-        <Link to="/about">
+        <Link to="/about" className='header-link'>
             About and list of todos
         </Link>
     </header>

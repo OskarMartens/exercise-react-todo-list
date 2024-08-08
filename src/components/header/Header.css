@@ -1,0 +1,10 @@
+.header{
+    display: flex;
+    max-width: fit-content;
+    gap: 20px;
+}
+
+.header-link{
+    font-size: xx-large;
+    color: blue;
+}
