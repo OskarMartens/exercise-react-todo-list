@@ -1,7 +1,6 @@
-import CreateTodo from "./create-todo/CreateTodo";
-import TodoCard from "./todo-card/TodoCard";
-import { ITodo } from "../interface";
 import { useState } from "react";
+import { Outlet } from "react-router";
+import { ITodo, ITodoContext } from "../interface";
 import data from "../data/todos.json";
 
 export function App() {
@@ -12,17 +11,21 @@ export function App() {
     setTodos([...todos, newTodo]);
   };
 
-  const removeTodo = (todo: ITodo): void  => {
-    setTodos(todos.filter((t) => t !== todo))
+  const removeTodo = (todo: ITodo): void => {
+    console.log(todo);
+    setTodos(todos.filter((t) => t !== todo));
+  };
+
+  const todoContext: ITodoContext = {
+    todos,
+    addTodo,
+    removeTodo
   };
 
   return (
     <>
       <main className="app-main">
-        <CreateTodo setFunction={addTodo}/>
-        {todos?.map((todo) => (
-          <TodoCard key={todo.content} todo={todo} onClick={removeTodo} />
-        ))}
+        <Outlet context={todoContext} />
       </main>
     </>
   );
