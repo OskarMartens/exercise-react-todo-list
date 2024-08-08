@@ -11,6 +11,7 @@ const {addTodo} = useOutletContext<ITodoContext>();
     assignedTo: "",
     content: "",
     timeStamp: new Date().toLocaleString(),
+    isDone: false
   });
 
   const saveTodo = () => {
@@ -20,6 +21,7 @@ const {addTodo} = useOutletContext<ITodoContext>();
         assignedTo: todoForm.assignedTo,
         content: todoForm.content,
         timeStamp: todoForm.timeStamp,
+        isDone: false
       };
       addTodo(newTodo);
     }

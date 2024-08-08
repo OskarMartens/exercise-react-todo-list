@@ -2,8 +2,7 @@ export interface ITodo{
     assignedTo : string,
     content: string,
     timeStamp: string,
-    isDone: boolean,
-    priority: number;
+    isDone: boolean;
 }
 
 export interface ITodoContext{
@@ -11,4 +10,5 @@ export interface ITodoContext{
     addTodo: (todo: ITodo) => void;
     removeTodo: (todo: ITodo) => void;
     toggleDone: (todo: ITodo) => void;
+    editTodo: (todo: ITodo, input: string) => void;
 }

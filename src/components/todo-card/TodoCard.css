@@ -1,23 +1,28 @@
-.todo-card-main{
-    border: #A02334 2px solid;
-    width: fit-content;
-    padding: 1rem;
-    background-color: #96CEB4;
-    border-radius: 1rem;
+.todo-card-main {
+  border: #a02334 2px solid;
+  width: fit-content;
+  padding: 1rem;
+  background-color: #96ceb4;
+  border-radius: 1rem;
 }
 
-.bottom-section{
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    gap: 10rem;
+.bottom-section {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  gap: 10rem;
 }
 
-.header{
-    margin: 0;
+.header {
+  margin: 0;
 }
 
-.buttons{
-    display: flex;
-    gap: 1rem;
+.header-done {
+  margin: 0;
+  text-decoration: line-through;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
 }

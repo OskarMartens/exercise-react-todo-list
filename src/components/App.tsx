@@ -32,7 +32,8 @@ export function App() {
     todos: todos,
     addTodo: addTodo,
     removeTodo: removeTodo,
-    toggleDone: toggleDone
+    toggleDone: toggleDone,
+    editTodo: editTodo
   };
 
   return (
