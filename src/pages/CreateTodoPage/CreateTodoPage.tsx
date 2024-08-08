@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import "./CreateTodo.css";
-import { ITodo } from "../../interface";
+import { useState } from "react";
+import "./CreateTodoPage.css";
+import { ITodo, ITodoContext } from "../../interface";
+import { useOutletContext } from "react-router";
 
-interface ICreateTodoProps {
-  setFunction: (todo: ITodo) => void;
-}
 
-export default function CreateTodo({ setFunction }: ICreateTodoProps) {
+export default function CreateTodo() {
+const {addTodo} = useOutletContext<ITodoContext>();
+
   const [todoForm, setTodoForm] = useState<ITodo>({
     assignedTo: "",
     content: "",
@@ -21,8 +21,7 @@ export default function CreateTodo({ setFunction }: ICreateTodoProps) {
         content: todoForm.content,
         timeStamp: todoForm.timeStamp,
       };
-      setFunction(newTodo);
-      console.log(todoForm);
+      addTodo(newTodo);
     }
   };
 
