@@ -2,7 +2,8 @@ export interface ITodo{
     assignedTo : string,
     content: string,
     timeStamp: string,
-    isDone: boolean
+    isDone: boolean,
+    priority: number;
 }
 
 export interface ITodoContext{

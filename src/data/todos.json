@@ -1,12 +1,16 @@
 [
   {
-    "assignedTo": "Jim",
+    "assignedTo": "Lars",
     "content": "Clean the dishes",
-    "timeStamp": "2024-08-07 12:44:05"
+    "timeStamp": "2024-08-07 12:44:05",
+    "isDone": true,
+    "priority": 1
   },
   {
-    "assignedTo": "Lars",
+    "assignedTo": "Kerstin",
     "content": "Take out the trash",
-    "timeStamp": "2024-08-07 12:34:24"
+    "timeStamp": "2024-08-07 12:34:24",
+    "isDone": false,
+    "priority": 1
   }
 ]

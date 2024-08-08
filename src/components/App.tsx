@@ -24,6 +24,10 @@ export function App() {
       todo.isDone = true;
   }
 
+  const editTodo = (todo: ITodo, input: string): void => {
+    todo.content = input;
+  }
+
   const todoContext: ITodoContext = {
     todos: todos,
     addTodo: addTodo,

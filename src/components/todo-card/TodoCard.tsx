@@ -12,24 +12,18 @@ export default function TodoCard({ todo, removeTodo, toggleDone }: ITodoProps) {
   const [isDone, setIsDone] = useState<boolean>(todo.isDone); 
   const [header, setHeader] = useState<string>(todo.content);
 
-  // const toggleDone = () => {
-  //   if (done) setDone(false);
-  //   else setDone(true);
-  // };
-
   useEffect(() => {
-    if (todo.isDone) {
-      console.log("hello");
+    if (isDone) {
       setHeader(todo.content + " DONE");
-      setIsDone(true);
-    }
-    if (!todo.isDone) {
+    } else {
       setHeader(todo.content);
-      setIsDone(false);
     }
-  }, [todo.isDone]);
+  }, [isDone, todo.content]);
 
-  const doneStatus = todo.isDone ? todo.content + " DONE" : todo.content;
+  const handleToggleDone = () => {
+    setIsDone(!isDone);
+    toggleDone(todo);
+  };
 
   return (
     <div className="todo-card-main">
@@ -37,13 +31,13 @@ export default function TodoCard({ todo, removeTodo, toggleDone }: ITodoProps) {
         <p>{todo.assignedTo}</p>
       </section>
       <section className="middle-section">
-        <h2 className="header">{doneStatus}</h2>
+        <h2 className="header">{header}</h2>
       </section>
       <section className="bottom-section">
         <p>{todo.timeStamp}</p>
         <section className="buttons">
           <button onClick={() => removeTodo(todo)}>Remove</button>
-          <button onClick={() => toggleDone(todo)}>Mark as done</button>
+          <button onClick={handleToggleDone}>Mark as done</button>
         </section>
       </section>
     </div>
