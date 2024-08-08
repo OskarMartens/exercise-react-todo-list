@@ -17,10 +17,18 @@ export function App() {
     setTodos(todos.filter((t) => t !== todo));
   };
 
+  const toggleDone = (todo: ITodo): void => {
+    if(todo.isDone)
+      todo.isDone = false;
+    else
+      todo.isDone = true;
+  }
+
   const todoContext: ITodoContext = {
-    todos,
-    addTodo,
-    removeTodo,
+    todos: todos,
+    addTodo: addTodo,
+    removeTodo: removeTodo,
+    toggleDone: toggleDone
   };
 
   return (
