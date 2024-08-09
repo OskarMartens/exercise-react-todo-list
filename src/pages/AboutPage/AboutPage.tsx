@@ -5,29 +5,46 @@ import TodoCard from "../../components/todo-card/TodoCard";
 import "./AboutPage.css";
 
 export default function AboutPage() {
-  const { todos, removeTodo, toggleDone, editTodo } = useOutletContext<ITodoContext>();
+  const { todos, removeTodo, toggleDone, editTodo } =
+    useOutletContext<ITodoContext>();
+  const [listToRender, setListToRender] = useState<ITodo[]>(todos);
 
-  const orderByAssignedTo = todos.sort((a, b) =>
-    a.assignedTo < b.assignedTo ? 1 : -1
-  );
+  const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    let sortedTodos = [...todos];
 
-  const orderByDate = todos.sort((a, b) =>
-    a.timeStamp > b.assignedTo ? 1 : -1
-  );
+    switch (e.target.value) {
+      case "no-specific":
+        setListToRender(sortedTodos);
+        break;
+      case "assignedTo":
+        sortedTodos = sortedTodos.sort((a, b) =>
+          a.assignedTo > b.assignedTo ? 1 : -1
+        );
+        setListToRender(sortedTodos);
+        break;
+      case "date":
+        sortedTodos = sortedTodos.sort((a, b) =>
+          a.timeStamp > b.timeStamp ? 1 : -1
+        );
+        setListToRender(sortedTodos);
+        break;
+    }
+  };
 
   return (
     <div>
       <section className="info">
         This the about page which contains a list of todos. Start working!
       </section>
-        <section className="selection">
-          <select name="" id="">
-            <option value="assignedTo">Assigned to</option>
-            <option value="timeStamp">Time stamp</option>
-          </select>
-        </section>
+      <section className="selection">
+        <select name="" id="" onChange={handleSortChange}>
+          <option value="no-specific">No specific order</option>
+          <option value="assignedTo">Assigned to</option>
+          <option value="date">Date</option>
+        </select>
+      </section>
       <section className="todos">
-        {todos?.map((todo) => (
+        {listToRender?.map((todo) => (
           <TodoCard
             key={todo.content}
             todo={todo}
