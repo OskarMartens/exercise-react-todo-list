@@ -68,8 +68,8 @@ export default function TodoCard({
     <div className="todo-card-main">
       <section className="top-section">
         <p>{todo.assignedTo}</p>
-        <button>Move up</button>
-        <button>Move down</button>
+        {/* <button>Move up</button>
+        <button>Move down</button> */}
       </section>
       <section className="middle-section">
         <h2 className={className}>{header}</h2>
