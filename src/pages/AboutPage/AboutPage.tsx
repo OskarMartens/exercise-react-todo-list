@@ -31,6 +31,39 @@ export default function AboutPage() {
     }
   };
 
+  const handleRemoveTodo = (todo: ITodo) => {
+    const updatedTodos = todos.filter((t) => t !== todo);
+    removeTodo(todo);
+    setListToRender(updatedTodos);
+  };
+
+  const moveUp = (targetTodo: ITodo): void => {
+    const index = listToRender.findIndex((todo) => todo === targetTodo);
+    if (index > 0) {
+      const updatedTodos = [...listToRender];
+
+      const temp = updatedTodos[index];
+      updatedTodos[index] = updatedTodos[index - 1];
+      updatedTodos[index - 1] = temp;
+
+      setListToRender(updatedTodos);
+    }
+  };
+
+  const moveDown = (targetTodo: ITodo): void => {
+    const index = listToRender.findIndex(todo => todo === targetTodo);
+  
+    if (index >= 0 && index < listToRender.length - 1) {
+      const updatedTodos = [...listToRender];
+  
+      const temp = updatedTodos[index];
+      updatedTodos[index] = updatedTodos[index + 1];
+      updatedTodos[index + 1] = temp;
+  
+      setListToRender(updatedTodos);
+    }
+  };
+
   return (
     <div>
       <section className="info">
@@ -48,9 +81,11 @@ export default function AboutPage() {
           <TodoCard
             key={todo.content}
             todo={todo}
-            removeTodo={removeTodo}
+            removeTodo={handleRemoveTodo}
             toggleDone={toggleDone}
             editTodo={editTodo}
+            moveUp={moveUp}
+            moveDown={moveDown}
           />
         ))}
       </section>

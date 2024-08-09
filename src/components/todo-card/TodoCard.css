@@ -6,6 +6,16 @@
   border-radius: 1rem;
 }
 
+.top-section{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.move-buttons{
+  display: flex;
+  gap: 1.5rem;
+}
 
 .bottom-section {
   display: flex;

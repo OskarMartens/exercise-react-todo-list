@@ -7,6 +7,8 @@ interface ITodoCardProps {
   removeTodo: (todo: ITodo) => void;
   toggleDone: (todo: ITodo) => void;
   editTodo: (todo: ITodo, input: string) => void;
+  moveUp: (todo: ITodo) => void;
+  moveDown: (todo: ITodo) => void;
 }
 
 export default function TodoCard({
@@ -14,6 +16,8 @@ export default function TodoCard({
   removeTodo,
   toggleDone,
   editTodo,
+  moveUp,
+  moveDown,
 }: ITodoCardProps) {
   const [isDone, setIsDone] = useState<boolean>(todo.isDone);
   const [header, setHeader] = useState<string>(todo.content);
@@ -68,8 +72,10 @@ export default function TodoCard({
     <div className="todo-card-main">
       <section className="top-section">
         <p>{todo.assignedTo}</p>
-        {/* <button>Move up</button>
-        <button>Move down</button> */}
+        <div className="move-buttons">
+          <button onClick={() => moveUp(todo)}>Move up</button>
+          <button onClick={() => moveDown(todo)}>Move down</button>
+        </div>
       </section>
       <section className="middle-section">
         <h2 className={className}>{header}</h2>
